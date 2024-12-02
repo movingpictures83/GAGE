@@ -1,0 +1,11 @@
+Prefix pipelines/GAGE/
+#Plugin ABLine inputfile hnrnp.csv outputfile abline.pdf
+#Plugin CSVUnQuote inputfile abline.pdf.norm.csv outputfile norm.csv
+#Plugin CSVUnPad inputile norm.csv outputfile norm.unpad.csv
+#Plugin GeneSetEnrich inputfile norm.unpad.csv outputfile gage.rds
+#Plugin PathView inputfile parameters/parameters.pathview.txt outputfile pathview.pdf
+#Plugin GOAnalyze inputfile norm.unpad.csv outputfile .
+#Plugin PerGeneScore inputfile norm.unpad.csv outputfile none
+#Plugin EdgeR inputfile abline.pdf.cnts.rds outputfile none 
+Plugin DigitalGeneExpression inputfile abline.pdf.cnts.rds outputfile dgel.rds
+Plugin VOOM inputfile dgel.rds outputfile voom.rds
